@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>angular app</title>
+</head>
+<body>
+
+    <div ng-app="myApp" ng-controller="MyController">
+        <input type="text" ng-model="greeting"><br>
+        原版：{{greeting}}<br>
+        翻转：{{greeting|reverse}}<br>
+        翻转+大写：{{greeting|reverse:true}}<br>
+        翻转+问好：{{greeting|reverse|sayhello}}
+
+        请勾选
+        <input type="checkbox" ng-model="all">
+        <input type="number" ng-disabled="all">
+
+        <div ng-app="" ng-init="myText='Hello World!'">
+        
+            <p ng-bind="myText"></p>
+        
+        </div>
+
+        <div my-customer info="chen"></div><br>
+        <div my-customer info="xu"></div>
+
+        <input type="text" ng-model="person.name">
+        <div ng-switch="person.name">
+            <p ng-switch-default>默认显示的值(jake,rose,chalie)，输入正确我就消失了</p>
+            <span style="color: grey;" ng-switch-when="jake">{{person.name}}</span>
+            <span style="color: red;" ng-switch-when="rose">{{person.name}}</span>
+            <span style="color: blue;" ng-switch-when="chalie">{{person.name}}</span>
+        </div>
+
+        <!-- Your name:
+        <input type="text" ng-model="username">
+        <button ng-click="sayHello()">greet</button>
+        {{greeting}}
+        <ul>
+            <li ng-repeat="friend in friends">
+                name: {{friend.name}}
+                age: {{friend.age}}
+            </li>
+        </ul>
+        <div ng-controller="GreetingCtrl">
+            father:{{count}}
+            <div ng-controller="GreetingCtrl">
+                <button ng-click="$emit('myEvent')">emit</button>
+                <button ng-click="$broadcast('myEvent')">broadcast</button>
+                son:{{count}}
+                <div ng-controller="GreetingCtrl">
+                    grandson:{{count}}
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
